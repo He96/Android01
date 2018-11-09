@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="false"
+        jar="D:\code\Android_1\app\libs\open_sdk_r6019_lite.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.3"
+        sha1="dde45810a88f02f379fa3a6fd4ecd413e7ca3ac7">
+        <dex dex="D:\code\Android_1\app\build\intermediates\pre-dexed\debug\open_sdk_r6019_lite_04cd92e57b59844c05d0a31a2ca6f88cb0138f36.jar" />
+    </item>
+
+</items>

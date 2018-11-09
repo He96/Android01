@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/ic_logo_bg04"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:weightSum="1"
+    tools:context="com.he.android_1.LoginActivity">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <com.he.android_1.divView.CircleImageView
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:layout_gravity="center"
+            android:src="@mipmap/logo" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:text="牵一只蜗牛去散步"
+            android:textColor="#000000" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="26dp"
+                android:layout_height="26dp"
+                app:srcCompat="@mipmap/ic_username" />I
+
+            <EditText
+                android:id="@+id/userName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="请输入账号"
+                android:inputType="textPersonName"
+                android:padding="15dp"
+                android:text="" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="26dp"
+                android:layout_height="26dp"
+                app:srcCompat="@mipmap/ic_password" />I
+
+            <EditText
+                android:id="@+id/passWord"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="请输入密码"
+                android:inputType="textPassword"
+                android:padding="15dp"
+                android:text="" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="60dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="200dp"
+                android:padding="6dp"
+                android:text="注册" />
+
+            <TextView
+                android:layout_width="80dp"
+                android:layout_height="match_parent"
+                android:layout_margin="6dp"
+                android:text="忘记密码？" />
+
+        </LinearLayout>
+
+
+        <Button
+            android:id="@+id/loginBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="30dp"
+            android:background="@drawable/bt_shape"
+            android:text="登录"
+            android:textColor="#ffffff"
+            android:textSize="18dp" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <View
+            android:layout_width="70dp"
+            android:layout_height="1px"
+            android:background="#1296db"></View>
+
+        <TextView
+            android:layout_width="120dp"
+            android:layout_height="50px"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:text="使用合作账户登录"></TextView>
+
+        <View
+            android:layout_width="70dp"
+            android:layout_height="1px"
+            android:background="#1296db"></View>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="10dp"
+        android:gravity="center">
+
+
+        <Button
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:background="@null"
+            android:drawableTop="@mipmap/wechat" />
+        <Button
+            android:id="@+id/qq_btn"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:background="@null"
+            android:drawableTop="@mipmap/ic_qq" />
+
+        <Button
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:background="@null"
+            android:drawableTop="@mipmap/singo" />
+    </LinearLayout>
+
+
+</LinearLayout>

@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@mipmap/ic_logo_bg01"
+    tools:context="com.he.android_1.MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="280dp">
+        <android.support.v4.view.ViewPager
+            android:id="@+id/viewpager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        </android.support.v4.view.ViewPager>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_alignParentBottom="true"
+            android:background="#66000000"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:padding="5dp">
+            <TextView
+                android:id="@+id/tv_desc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:text="标题"
+                android:textColor="#ffffff" />
+            <LinearLayout
+                android:id="@+id/II_point_container"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal">
+            </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="20dp"
+        android:orientation="vertical"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:layout_marginTop="25dp"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/weather"
+                android:layout_width="0dp"
+                android:layout_height="120dp"
+                android:layout_margin="12dp"
+                android:layout_weight="1"
+                android:background="#96B8FF"
+                android:gravity="center"
+                android:text="天气"
+                android:textColor="#ffffff"
+                android:textSize="16dp" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="120dp"
+                android:layout_margin="12dp"
+                android:layout_weight="1"
+                android:background="#FF9494"
+                android:gravity="center"
+                android:text="日历"
+                android:textColor="#ffffff"
+                android:textSize="16dp" />
+
+            <TextView
+                android:id="@+id/wifiView"
+                android:layout_width="0dp"
+                android:layout_height="120dp"
+                android:layout_margin="12dp"
+                android:layout_weight="1"
+                android:background="#D9B3E6"
+                android:gravity="center"
+                android:text="wifi"
+                android:textColor="#ffffff"
+                android:textSize="16dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:layout_marginTop="20dp"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/txtInfo"
+                android:layout_width="0dp"
+                android:layout_height="120dp"
+                android:layout_margin="12dp"
+                android:layout_weight="1"
+                android:background="#64dbde"
+                android:gravity="center"
+                android:text="小说"
+                android:textColor="#ffffff"
+                android:textSize="16dp" />
+
+            <TextView
+                android:id="@+id/clockTime"
+                android:layout_width="0dp"
+                android:layout_height="120dp"
+                android:layout_margin="12dp"
+                android:layout_weight="1"
+                android:background="#EF6140"
+                android:gravity="center"
+                android:text="时钟"
+                android:textColor="#ffffff"
+                android:textSize="16dp" />
+
+            <TextView
+                android:id="@+id/calculator"
+                android:layout_width="0dp"
+                android:layout_height="120dp"
+                android:layout_margin="12dp"
+                android:layout_weight="1"
+                android:background="#663525"
+                android:gravity="center"
+                android:text="计算器"
+                android:textColor="#ffffff"
+                android:textSize="16dp" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

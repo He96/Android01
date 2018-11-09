@@ -92,7 +92,7 @@ public class LoginActivity extends AppCompatActivity {
 
         //创建retrofit对象
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://www.zswwlj.com/api/")
+                .baseUrl("http://www.jiutongtang.cn/api/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         //创建网络请求接口实例

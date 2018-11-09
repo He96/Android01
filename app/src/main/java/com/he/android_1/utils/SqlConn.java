@@ -44,38 +44,7 @@ public class SqlConn {
         db.execSQL(create_table);
     }
 
-    public void insert(PageInfo pageInfo) {
-        ContentValues cv = new ContentValues();
-        cv.put("title", pageInfo.getTitle());
-        cv.put("content", pageInfo.getContext());
-        cv.put("planned", new Double("0.0"));
-        db.insert("pages", null, cv);
-    }
 
-    public void update(PageInfo info) {
-        String sql = "update pages set planned=" + info.getPlanned() + "where id = " + info.getId();
-        db.execSQL(sql);
-
-    }
-
-    public List<PageInfo> getPageList() {
-        Cursor cursor = db.query("pages", null, null, null, null, null, null, null);
-        List<PageInfo> list = new ArrayList<>();
-        if (cursor.getCount() > 0) {
-            cursor.moveToFirst();
-            PageInfo info;
-            for (int i = 0; i < cursor.getCount(); i++) {
-                int id = cursor.getInt(cursor.getColumnIndex("id"));
-                String title = cursor.getString(cursor.getColumnIndex("title"));
-                String content = cursor.getString(cursor.getColumnIndex("content"));
-                double planned = cursor.getDouble(cursor.getColumnIndex("planned"));
-                info = new PageInfo(id, title, content, planned);
-                list.add(info);
-                cursor.moveToNext();
-            }
-        }
-        return list;
-    }
 
 
 }

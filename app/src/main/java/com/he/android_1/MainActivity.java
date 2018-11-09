@@ -13,7 +13,12 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.he.android_1.model.PageInfo;
+import com.he.android_1.utils.DBHelper;
+import com.he.android_1.utils.PageTitleManger;
+
 import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

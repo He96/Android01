@@ -10,12 +10,17 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.he.android_1.model.PageInfo;
 import com.he.android_1.model.Result;
 import com.he.android_1.service.LoginService;
+import com.he.android_1.utils.DBHelper;
+import com.he.android_1.utils.PageTitleManger;
 
 import org.apache.commons.lang3.StringUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -51,6 +56,20 @@ public class LoginActivity extends AppCompatActivity {
             //透明导航栏
             getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
         }
+        //创建数据库及连接
+
+        new Thread() {
+            @Override
+            public void run() {
+                DBHelper dh = new DBHelper(LoginActivity.this);
+                if (dh.getPageList(null).size() <= 0) {
+                    List<PageInfo> list = PageTitleManger.getTitleList(LoginActivity.this);
+                    for (PageInfo item : list) {
+                        dh.insert(item);
+                    }
+                }
+            }
+        }.start();
     }
 
     @OnClick(R.id.loginBtn)
@@ -59,7 +78,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     @OnClick(R.id.qq_btn)
-    public void qqClicked(){
+    public void qqClicked() {
         Intent intent = new Intent(LoginActivity.this, MainActivity.class);
         startActivity(intent);
     }

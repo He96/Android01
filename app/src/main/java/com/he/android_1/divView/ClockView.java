@@ -58,20 +58,20 @@ public class ClockView extends View {
         canvas.translate(getWidth() / 2, getHeight() / 2);
         for (int i = 0; i < 360; i++) {
             //秒
-            int a = 15;
+            int a = 20;
             //分钟
             if (i % 6 == 0) {
-                a = 30;
+                a = 35;
             }
             //小时
             if (i % 30 == 0) {
-                a = 40;
+                a = 45;
             }
             canvas.drawLine(getWidth() / 3 - a, 0, getWidth() / 3, 0, mPaint);
             canvas.rotate(1);
         }
         Paint tPain = new Paint();
-        tPain.setTextSize(35);
+        tPain.setTextSize(40);
         tPain.setAntiAlias(true);
         tPain.setStyle(Paint.Style.FILL);
         Rect textBound = new Rect();
@@ -93,7 +93,7 @@ public class ClockView extends View {
         paint.setStyle(Paint.Style.STROKE);
         paint.setStrokeWidth(2);
         canvas.rotate(mSecondDegree);
-        canvas.drawLine(0, 0, 0, -190, paint);
+        canvas.drawLine(0, 0, 0, -240, paint);
         canvas.restore();
         //分钟
         canvas.save();
@@ -101,14 +101,14 @@ public class ClockView extends View {
         paint.setStyle(Paint.Style.STROKE);
         paint.setStrokeWidth(4);
         canvas.rotate(mMinDegree);
-        canvas.drawLine(0, 0, 0, -140, paint);
+        canvas.drawLine(0, 0, 0, -180, paint);
         canvas.restore();
         canvas.save();
         //时针
         paint.setStyle(Paint.Style.STROKE);
         paint.setStrokeWidth(7);
         canvas.rotate(mHourDegree);
-        canvas.drawLine(0, 0, 0, -100, paint);
+        canvas.drawLine(0, 0, 0, -140, paint);
         canvas.restore();
     }
 

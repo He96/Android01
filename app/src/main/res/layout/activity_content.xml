@@ -46,8 +46,11 @@
 
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
+            android:layout_height="match_parent"
+            android:scrollbarThumbVertical="@drawable/scroll_type"
+            android:scrollbarTrackVertical="@drawable/scroll_bg_type"
+            android:scrollbarSize="4dp"
+            >
             <TextView
                 android:id="@+id/titleContent"
                 android:layout_width="match_parent"

@@ -50,7 +50,6 @@ public class PageTitleManger {
                         titleList.get(count - 2).setContext(info.toString());
                         pageInfo.setContext(info.toString());
                         info = new StringBuffer();
-                        //sqlConn.insert(pageInfo);
                     }
                     titleList.add(pageInfo);
                     count++;

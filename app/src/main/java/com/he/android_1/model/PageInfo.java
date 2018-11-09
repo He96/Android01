@@ -75,9 +75,12 @@ public class PageInfo implements Serializable {
     @Override
     public String toString() {
         return "PageInfo{" +
-                "title='" + title + '\'' +
+                "id=" + id +
+                ", title='" + title + '\'' +
                 ", offSet=" + offSet +
                 ", count=" + count +
+                ", context='" + context + '\'' +
+                ", planned=" + planned +
                 '}';
     }
 }

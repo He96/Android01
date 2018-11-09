@@ -5,15 +5,20 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@mipmap/ic_logo_bg03"
     tools:context="com.he.android_1.TimeActivity">
 <com.he.android_1.divView.ClockView
     android:layout_gravity="center"
     android:id="@+id/time_view"
-    android:layout_width="320dp"
-    android:layout_height="320dp" />
+    android:layout_width="520dp"
+    android:layout_height="520dp" />
 
     <TextView
         android:id="@+id/showTime"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:textSize="24sp"
+        android:gravity="center_horizontal"
+        android:textColor="#265e64"
+        android:text="2018-12-01 11:23:32 星期一"/>
 </LinearLayout>

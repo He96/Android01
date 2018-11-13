@@ -7,7 +7,7 @@
     <TextView
         android:id="@+id/text_title"
         android:padding="10dp"
-        android:text="666"
+        android:text=""
         android:textColor="@color/black"
         android:textSize="17sp"
         android:layout_width="match_parent"
@@ -15,7 +15,7 @@
     <TextView
         android:id="@+id/text_flag"
         android:paddingBottom="3dp"
-        android:text="666"
+        android:text=""
         android:textColor="@color/colorRed"
         android:textSize="16sp"
         android:layout_width="match_parent"

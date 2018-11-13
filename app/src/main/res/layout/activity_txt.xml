@@ -11,6 +11,7 @@
        android:layout_width="match_parent"
        android:layout_height="40dp"
        android:orientation="horizontal"
+       android:background="#80FFFFFF"
        android:gravity="right">
        <ImageView
            android:id="@+id/order_by_title"

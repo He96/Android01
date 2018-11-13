@@ -5,6 +5,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,6 +20,7 @@ import com.he.android_1.model.PageInfo;
 import com.he.android_1.utils.DBHelper;
 
 import java.util.List;
+import java.util.Map;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -32,7 +34,9 @@ public class TxtActivity extends AppCompatActivity {
     ImageView orderByTitle;
     private List<PageInfo> mList;
     boolean flag = true;
+    int titleId = 0;
     private DBHelper dbHelper = new DBHelper(TxtActivity.this);
+    private NewsAdapter newsAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,15 +49,14 @@ public class TxtActivity extends AppCompatActivity {
             //透明导航栏
             getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
         }
-        initData();
         initUI();
+        mList = dbHelper.getPageList(null);
         initAdapter();
-
     }
 
     @OnClick(R.id.order_by_title)
     public void toOrderBy() {
-        Log.e("排序",flag+"");
+        Log.e("排序", flag + "");
         String args = "id desc";
         if (!flag) {
             args = "id asc";
@@ -67,21 +70,36 @@ public class TxtActivity extends AppCompatActivity {
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int item, long id) {
+                Log.e("click item:", item + " id:" + id);
                 Intent intent = new Intent(TxtActivity.this, ContentActivity.class);
                 intent.putExtra("pageInfo", mList.get(item));
-                startActivity(intent);
+                dbHelper.addMap("title", String.valueOf(item));
+                titleId = item;
+                startActivityForResult(intent, 202);
             }
         });
     }
 
-    private void initData() {
-        mList = dbHelper.getPageList(null);
-        Log.e("mList0:", mList.get(0).getTitle());
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        Log.e("he", "requestCode:" + requestCode);
+        Log.e("TxtTime", System.currentTimeMillis() + "");
+        if (requestCode == 202 && resultCode == RESULT_OK) {
+            double planned = data.getDoubleExtra("planned", 0);
+            Bundle bundle = data.getExtras();
+            double plan = bundle.getDouble("planned");
+            Log.e("txt planned", planned + " plan:" + plan);
+            mList.get(titleId).setPlanned(planned);
+            newsAdapter.notifyDataSetChanged();
+        } else {
+            Log.e("data", "data " + data);
+        }
     }
 
     private void initAdapter() {
-        lv.setAdapter(new NewsAdapter());
-        lv.invalidate();
+        newsAdapter = new NewsAdapter();
+        lv.setAdapter(newsAdapter);
     }
 
     public class NewsAdapter extends BaseAdapter {
@@ -117,7 +135,9 @@ public class TxtActivity extends AppCompatActivity {
 
             PageInfo pageInfo = mList.get(position);
             holder.textView.setText(pageInfo.getTitle());
-            holder.textView1.setText("已读:" + pageInfo.getPlanned() + "%");
+            if (pageInfo.getPlanned() > 0.01) {
+                holder.textView1.setText("已读:" + pageInfo.getPlanned() + "%");
+            }
             return convertView;
         }
 
@@ -131,7 +151,11 @@ public class TxtActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        mList = dbHelper.getPageList(null);
-        initAdapter();
+        Map<String, String> maps = dbHelper.getMap("title");
+        if (maps.size() > 0 && maps.containsKey("title")) {
+            //滑动到指定位置
+            lv.setSelection(Integer.valueOf(maps.get("title").trim()));
+        }
     }
+
 }

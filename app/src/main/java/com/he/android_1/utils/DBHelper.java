@@ -9,7 +9,9 @@ import android.database.sqlite.SQLiteOpenHelper;
 import com.he.android_1.model.PageInfo;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by heshuang on 2018/11/9 0009.
@@ -26,6 +28,8 @@ public class DBHelper extends SQLiteOpenHelper {
         //创建表
         String create_table = "CREATE TABLE pages (id integer primary key autoincrement, title text, content text, planned double)";
         db.execSQL(create_table);
+        String create_map = "CREATE TABLE map (id integer primary key autoincrement, k text, v text)";
+        db.execSQL(create_map);
     }
 
     @Override
@@ -44,10 +48,8 @@ public class DBHelper extends SQLiteOpenHelper {
 
     public void update(PageInfo info) {
         SQLiteDatabase db = getWritableDatabase();
-        if (info.getPlanned() <= 80.0) {
-            String sql = "update pages set planned=" + info.getPlanned() + " where id = " + info.getId();
-            db.execSQL(sql);
-        }
+        String sql = "update pages set planned=" + info.getPlanned() + " where id = " + info.getId();
+        db.execSQL(sql);
     }
 
     public List<PageInfo> getPageList(String orderBy) {
@@ -79,6 +81,49 @@ public class DBHelper extends SQLiteOpenHelper {
             result = cursor.getString(cursor.getColumnIndex("planned"));
         }
         return result;
+    }
+
+    /**
+     * 添加键值对 存在则替换key
+     *
+     * @param key   键
+     * @param value 值
+     */
+    public void addMap(String key, String value) {
+        SQLiteDatabase db = getWritableDatabase();
+        ContentValues cv = new ContentValues();
+        Map<String, String> map = getMap(key);
+        if (map.size() > 0 && map.containsKey("key")) {
+            String sql = "update map set v=" + value + " where key = " + key;
+            db.execSQL(sql);
+        } else {
+            cv.put("k", key);
+            cv.put("v", value);
+            db.insert("map", null, cv);
+        }
+    }
+
+    /**
+     * 根据key获取指定的键值对
+     *
+     * @param key
+     * @return
+     */
+    public Map<String, String> getMap(String key) {
+        Map<String, String> map = new HashMap<>();
+        try {
+            SQLiteDatabase db = getWritableDatabase();
+            String sql = "select * from map where k=?";
+            Cursor cursor = db.rawQuery(sql, new String[]{key});
+            while (cursor.moveToNext()) {
+                String k = cursor.getString(cursor.getColumnIndex("k"));
+                String v = cursor.getString(cursor.getColumnIndex("v"));
+                map.put(k, v);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return map;
     }
 
 }

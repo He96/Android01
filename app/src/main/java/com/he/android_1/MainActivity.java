@@ -12,6 +12,7 @@ import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.he.android_1.model.PageInfo;
 import com.he.android_1.utils.DBHelper;
@@ -212,9 +213,10 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    //小说
     @OnClick(R.id.txtInfo)
     public void toTxt() {
-        Intent intent = new Intent(MainActivity.this, TxtActivity.class);
+        Intent intent = new Intent(MainActivity.this, PageTableActivity.class);
         startActivity(intent);
     }
 }

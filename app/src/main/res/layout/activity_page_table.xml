@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.he.android_1.PageTableActivity">
+   <LinearLayout
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:orientation="horizontal"
+       android:layout_marginTop="25dp"
+       android:gravity="center">
+       <TextView
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:gravity="center"
+           android:textSize="22sp"
+           android:textColor="#545454"
+           android:text="书城"/>
+       <TextView
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:gravity="center"
+           android:layout_marginLeft="40dp"
+           android:textSize="22sp"
+           android:textColor="#f15806"
+           android:text="藏书阁"/>
+   </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2px"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:background="#67414141"></View>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:orientation="horizontal">
+       <LinearLayout
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:orientation="vertical"
+           android:gravity="center">
+
+           <ImageView
+               android:id="@+id/jy_bt"
+               android:layout_width="121dp"
+               android:layout_height="238dp"
+               android:layout_marginTop="10dp"
+               android:layout_marginLeft="15dp"
+               android:layout_marginRight="15dp"
+               android:src="@mipmap/ic_content_bg04" />
+           <TextView
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:textSize="18dp"
+               android:text="将夜"
+               android:textColor="@color/colorPrimaryDark" />
+           <TextView
+               android:id="@+id/text_progress"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:textSize="14dp"
+               android:text=""
+               />
+       </LinearLayout>
+
+    </LinearLayout>
+</LinearLayout>
